@@ -1,5 +1,4 @@
 FROM ubuntu:12.04
-MAINTAINER Max Gonzih <gonzih at gmail dot com>
 
 RUN apt-get -y update
 RUN apt-get -y upgrade
@@ -22,7 +21,8 @@ ADD ./update.sh $SERVER/update.sh
 ADD ./tf.sh $SERVER/tf.sh
 RUN $SERVER/update.sh
 
-EXPOSE 27015/udp
+EXPOSE 27015
+EXPOSE 27020
 
 WORKDIR /home/$USER/hlserver
 ENTRYPOINT ["./tf.sh"]
